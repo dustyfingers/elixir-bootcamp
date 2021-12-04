@@ -6,4 +6,9 @@ defmodule Cards do
     # implicit return last value in function
     "hi there!"
   end
+
+  def create_deck do
+    # brackets define a list
+    ["Ace", "Two", "Three"]
+  end
 end

@@ -1,18 +1,9 @@
+# defmodule creates a 
+# module is a collection of methods or functions
 defmodule Cards do
-  @moduledoc """
-  Documentation for `Cards`.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Cards.hello()
-      :world
-
-  """
+  # def defines a method in this module
   def hello do
-    :world
+    # implicit return last value in function
+    "hi there!"
   end
 end

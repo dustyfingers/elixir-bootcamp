@@ -55,6 +55,16 @@ defmodule Cards do
     # order of items matters in tuples!
     # index 0 is always hand, index 1 is always rest of deck
     Enum.split(deck, hand_size)
+
+    # pattern matching is elixirs replacement for variable assignment!
+    # color1 = ["red"] # --> ["red"]
+    # [color1] = ["red"] # --> "red"
+  end
+
+  def save(deck, filename) do 
+    # hook into erlang to convert deck to a binary (binaries can be written to the file system)
+    binary = :erlang.term_to_binary(deck)
+    File.write(filename, binary)
   end
 
 end

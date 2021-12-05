@@ -50,4 +50,11 @@ defmodule Cards do
     Enum.member?(deck, card)
   end
 
+  def deal(deck, hand_size) do
+    # returns a tuple, denoted by {} in elixir
+    # order of items matters in tuples!
+    # index 0 is always hand, index 1 is always rest of deck
+    Enum.split(deck, hand_size)
+  end
+
 end

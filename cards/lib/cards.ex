@@ -67,4 +67,16 @@ defmodule Cards do
     File.write(filename, binary)
   end
 
+  def load(filename) do
+    {status, file_bin} = File.read(filename)
+
+    # ! IF STATEMENTS ARE GENERALLY BAD FORM IN ELIXIR
+    # ! USE CASE INSTEAD
+    case status do
+      :ok -> :erlang.binary_to_term(file_bin)
+      :error -> :"File not found."
+    end
+    
+  end
+
 end

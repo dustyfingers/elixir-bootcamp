@@ -90,11 +90,21 @@ defmodule Cards do
 
   def create_hand(hand_size) do
 
-    deck = Cards.create_deck()
+    # without pipe operator
+    # deck = Cards.create_deck()
 
-    deck = Cards.shuffle(deck)
+    # deck = Cards.shuffle(deck)
 
-    hand = Cards.deal(deck, hand_size)
+    # hand = Cards.deal(deck, hand_size)
+
+    # same as above but with pipe operator
+    # consistent first arguments are CRUCIAL when using the pipe operator
+    Cards.create_deck
+
+    |> Cards.shuffle
+
+    # 'deck' is implicitly passed into .deal() as the first argument - due to the pipe operator=
+    |> Cards.deal(hand_size)
 
   end
 

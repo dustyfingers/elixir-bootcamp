@@ -47,10 +47,13 @@ defmodule Cards do
   # mainly used to denote that the method returns 'truthy' or 'falsey'
   # rule of thumb - used when 'asking a question' about a certain data structure
   def contains?(deck, card) do
+
     Enum.member?(deck, card)
+
   end
 
   def deal(deck, hand_size) do
+
     # returns a tuple, denoted by {} in elixir
     # order of items matters in tuples!
     # index 0 is always hand, index 1 is always rest of deck
@@ -59,24 +62,30 @@ defmodule Cards do
     # pattern matching is elixirs replacement for variable assignment!
     # color1 = ["red"] # --> ["red"]
     # [color1] = ["red"] # --> "red"
+
   end
 
   def save(deck, filename) do 
+
     # hook into erlang to convert deck to a binary (binaries can be written to the file system)
     binary = :erlang.term_to_binary(deck)
     File.write(filename, binary)
+
   end
 
   def load(filename) do
-    {status, file_bin} = File.read(filename)
 
     # ! IF STATEMENTS ARE GENERALLY BAD FORM IN ELIXIR
     # ! USE CASE INSTEAD
-    case status do
-      :ok -> :erlang.binary_to_term(file_bin)
-      :error -> :"File not found."
+    case File.read(filename) do
+
+      # the pattern :word in elixir is called an 'atom'. they are often used to represent status codes
+      # the two most common are :ok and :error
+      { :ok, file_bin } -> :erlang.binary_to_term(file_bin)
+      { :error, reason } -> :"File not found."
+
     end
-    
+
   end
 
 end

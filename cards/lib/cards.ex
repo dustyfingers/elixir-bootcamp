@@ -82,7 +82,7 @@ defmodule Cards do
       # the pattern :word in elixir is called an 'atom'. they are often used to represent status codes
       # the two most common are :ok and :error
       { :ok, file_bin } -> :erlang.binary_to_term(file_bin)
-      { :error, reason } -> :"File not found."
+      { :error, _reason } -> :"File not found."
 
     end
 

@@ -11,6 +11,9 @@ defmodule Cards do
     "hi there!"
   end
 
+  @doc """
+    returns a list of strings representing a deck of playing cards
+  """
   def create_deck do
     # brackets define a list
     values = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"]
@@ -55,6 +58,18 @@ defmodule Cards do
 
   end
 
+  @doc """
+    divides a deck into a hand and the remainder of the deck.
+    the `hand_size` arg indicates how many cards will be in the hand
+
+    ## Examples
+
+          iex> deck = Cards.create_deck()
+          iex> {hand, deck} = Cards.deal(deck, 1)
+          iex> hand
+          ["Ace of Spades"]
+          
+  """
   def deal(deck, hand_size) do
 
     # returns a tuple, denoted by {} in elixir

@@ -52,6 +52,17 @@ defmodule Cards do
   # doesnt impart any special funcitonality
   # mainly used to denote that the method returns 'truthy' or 'falsey'
   # rule of thumb - used when 'asking a question' about a certain data structure
+  
+  @doc """
+    determines whether a deck contains a given card
+
+    ## Examples
+
+          iex> deck = Cards.create_deck()
+          iex> Cards.contains?(deck, "Ace of Spades")
+          iex> true
+
+  """
   def contains?(deck, card) do
 
     Enum.member?(deck, card)
@@ -62,13 +73,17 @@ defmodule Cards do
     divides a deck into a hand and the remainder of the deck.
     the `hand_size` arg indicates how many cards will be in the hand
 
+    # this following 'Examples' code is run as a doctest, as if it was in the elixir shell when we 'mix test'
+    # it has to be formatted EXACTLY like this though 
+
     ## Examples
 
           iex> deck = Cards.create_deck()
           iex> {hand, deck} = Cards.deal(deck, 1)
           iex> hand
           ["Ace of Spades"]
-          
+          iex> deck
+
   """
   def deal(deck, hand_size) do
 

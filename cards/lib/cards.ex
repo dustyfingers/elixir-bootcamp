@@ -1,6 +1,9 @@
 # defmodule creates a 
 # module is a collection of methods or functions
 defmodule Cards do
+  @moduledoc """
+    provides methods for creating andd handling a deck of cards
+  """
 
   # def defines a method in this module
   def hello_world do

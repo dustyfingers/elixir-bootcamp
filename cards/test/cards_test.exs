@@ -3,6 +3,11 @@ defmodule CardsTest do
   doctest Cards
 
   test "greets the world" do
-    assert Cards.hello() == :world
+    assert Cards.hello_world() == "hi there!"
+  end
+
+  test "the truth" do
+    assert 1 + 1 == 2
   end
 end
+    

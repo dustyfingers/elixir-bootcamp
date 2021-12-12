@@ -18,7 +18,7 @@ defmodule Identicon do
   end
 
   @doc """
-    takes in a string and returns a list of the binary of the hash
+    takes in a string and returns a list of the binary of the hash of that string
 
   ## Examples
 
@@ -27,8 +27,10 @@ defmodule Identicon do
 
   """
   def hash_input(input) do
-    :crypto.hash(:md4, input)
+    hex = :crypto.hash(:md4, input)
     |> :binary.bin_to_list
+
+    %Identicon.Image{hex: hex}
   end
 
 end
